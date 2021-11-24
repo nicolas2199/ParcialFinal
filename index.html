@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>trabajo Final</title>
+  <script type="module" src="./src/app.js"></script>
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+  
+  <video id="video1" autoplay muted loop webkit-playsinline style="display:none"></video>
+  <video id="video2" autoplay muted loop webkit-playsinline style="display:none"></video>
+  <video id="video3" autoplay muted loop webkit-playsinline style="display:none"></video>
+  <div id="renderScene"></div>
+  <div id="backBtn">Return</div>
+</div>
+<div id="content">
+  <div class="btnOption small" data-size="10">
+    <div class="title">Parcial Final Compugrafica xD</div>
+    <span>20x20</span>
+  </div>
+
+
+<script type="module">
+import { main,reset } from './src/app.js';
+
+  const options = document.querySelectorAll('.btnOption');
+  const content = document.querySelector('#content');
+  const backBtn = document.querySelector('#backBtn');
+  
+  let size = 10;
+  options.forEach(optionSelected => {
+      optionSelected.onclick = function(){
+        const optionSize = this.dataset.size;
+        size = optionSize;
+        toogleContent();
+        main(size);
+      }
+      backBtn.onclick = function(){
+      toogleContent();
+      cleanGUI();
+      reset();
+    }
+    });
+    function toogleContent (){
+      content.style.display = content.style.display == 'none' ? 'flex' : 'none';
+    }
+    
+</script>
+</body>
+
+</html>
